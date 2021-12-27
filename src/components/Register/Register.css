@@ -1,0 +1,27 @@
+.register {
+  color: white;
+}
+
+.register-card {
+  padding: 3% 0;
+}
+
+.register-title-box {
+  margin: 3% 0 !important;
+  padding: 5%;
+}
+
+.register-title {
+  background-color: rgb(12, 12, 12);
+  padding: 5% 13% !important;
+}
+
+.register-subtitle {
+  font-size: 2rem;
+}
+
+.register-button {
+  display: block !important;
+  margin: 0 auto;
+  background-color: rgb(32, 32, 32) !important;
+}
