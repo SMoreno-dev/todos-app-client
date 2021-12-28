@@ -63,7 +63,7 @@ const TodoCollection = () => {
           + new
         </div>
       </div>
-      {!loaded ? <p className="p-4">Loading...</p> : null}
+      {!loaded ? <p className="p- 4">Loading...</p> : null}
       {!todos[0]
         ? null
         : todos.map((t, i) => {
