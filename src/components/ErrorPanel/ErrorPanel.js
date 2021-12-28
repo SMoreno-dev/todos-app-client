@@ -15,7 +15,7 @@ const SignUpError = ({ message, redirect }) => {
 
   const handleRedirect = () => {
     showPanel(false);
-    navigate.push(redirect);
+    navigate(redirect);
   };
 
   return (

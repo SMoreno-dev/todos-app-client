@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 
 import ErrorPanel from "../ErrorPanel/ErrorPanel";
+import CheckStatus from "../../utils/CheckStatus";
 
 import { Container, Row, Col, Card, Button } from "react-bootstrap";
 import "./Register.css";
@@ -49,19 +50,17 @@ const Register = () => {
 
       const parsedResponse = await response.json();
 
-      if (response.status !== 201) {
-        return setError({
-          error: true,
-          message: parsedResponse.message,
-        });
-      } else {
-        localStorage.setItem("id", parsedResponse.body.id);
-        localStorage.setItem("token", parsedResponse.body.token);
-        navigate("/");
+      //Check status
+      const checkedStatus = CheckStatus(response.status, parsedResponse);
+      if (checkedStatus.error === true) {
+        return setError(checkedStatus);
       }
+      localStorage.setItem("id", parsedResponse.body.id);
+      localStorage.setItem("token", parsedResponse.body.token);
+      return navigate("/");
     } catch (error) {
       console.error("ERROR:", error);
-      setError({ error: true, message: "Something went wrong." });
+      setError({ error: true, message: "Error registering your account." });
     }
   };
 
@@ -109,7 +108,7 @@ const Register = () => {
                   Register
                 </Button>
 
-                <Link to="/signin">I already have an account</Link>
+                <Link to="/login">I already have an account</Link>
               </form>
             </Card>
           </Col>

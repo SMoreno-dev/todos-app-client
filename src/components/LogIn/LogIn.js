@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 
 import ErrorPanel from "../ErrorPanel/ErrorPanel";
+import CheckStatus from "../../utils/CheckStatus";
 
 import { Container, Row, Col, Card, Button } from "react-bootstrap";
 import "./LogIn.css";
@@ -45,17 +46,16 @@ const LogIn = () => {
       );
 
       const parsedResponse = await response.json();
-
-      if (response.status !== 200) {
-        return setError({ error: true, message: parsedResponse.message });
-      } else {
-        localStorage.setItem("id", parsedResponse.body.id);
-        localStorage.setItem("token", parsedResponse.body.token);
-        navigate("/");
+      const checkedStatus = CheckStatus(response.status, parsedResponse);
+      if (checkedStatus.error === true) {
+        return setError(checkedStatus);
       }
+      localStorage.setItem("id", parsedResponse.body.id);
+      localStorage.setItem("token", parsedResponse.body.token);
+      return navigate("/");
     } catch (error) {
-      return setError({ error: true, message: "Something went wrong" });
       console.log("ERROR:", error);
+      return setError({ error: true, message: "Something went wrong." });
     }
   };
 
