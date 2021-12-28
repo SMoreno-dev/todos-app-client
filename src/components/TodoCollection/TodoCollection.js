@@ -42,7 +42,10 @@ const TodoCollection = () => {
       setLoaded(true);
     } catch (error) {
       console.error(error);
-      return setError({ error: true, message: "Something went wrong" });
+      return setError({
+        error: true,
+        message: "Something went wrong loading the TODOs",
+      });
     }
   };
 
@@ -52,7 +55,6 @@ const TodoCollection = () => {
   return (
     <div>
       {error.error ? <ErrorPanel message={error.message} /> : null}
-      {!loaded ? <p className="pb-2 pt-2">Loading...</p> : null}
       <div className="todo-collection-title-box">
         <div className="todo-collection-title" onClick={() => navigate("/")}>
           TODOs
@@ -61,6 +63,7 @@ const TodoCollection = () => {
           + new
         </div>
       </div>
+      {!loaded ? <p className="p-4">Loading...</p> : null}
       {!todos[0]
         ? null
         : todos.map((t, i) => {
