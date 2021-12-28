@@ -1,0 +1,45 @@
+.nv-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 1%;
+  background-color: rgba(10, 71, 150, 0.63);
+}
+
+.logo-and-todos {
+  display: flex;
+  align-items: center;
+}
+.todos-logo {
+  color: white !important;
+  width: 30px;
+  cursor: pointer;
+}
+
+.nv-separator {
+  margin: 0 10%;
+}
+
+.nv-todos {
+  cursor: pointer;
+  line-height: 2rem;
+}
+
+.nav-end {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-user {
+  padding: 3px 15px 3px 0;
+  align-items: center;
+  margin: auto;
+  cursor: pointer;
+}
+
+.navbar-button {
+  padding: 6px;
+  background-color: rgb(32, 32, 32) !important;
+  border-radius: 5px;
+  cursor: pointer;
+}

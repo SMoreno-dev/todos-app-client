@@ -71,7 +71,7 @@ const Register = () => {
           <Col sm={3}></Col>
           <Col sm={6}>
             <h1 className="register-title-box">
-              <span className="register-title rounded">Sign Up</span>
+              <span className="register-title rounded">Register</span>
             </h1>
             {error.error ? <ErrorPanel message={error.message} /> : null}
             <Card className="register-card">
@@ -105,7 +105,7 @@ const Register = () => {
                   variant="secondary"
                   onClick={() => handleSubmit()}
                 >
-                  Sign Up
+                  Register
                 </Button>
 
                 <Link to="/signin">I already have an account</Link>
