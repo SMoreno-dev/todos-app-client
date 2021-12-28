@@ -1,0 +1,14 @@
+.todo-collection-title-box {
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 3rem;
+}
+
+.todo-collection-title {
+  cursor: pointer;
+}
+
+.create-todo-link {
+  cursor: pointer;
+}

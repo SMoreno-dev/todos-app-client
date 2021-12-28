@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router";
 
 import ErrorPanel from "../ErrorPanel/ErrorPanel";
 import Todo from "../Todo/Todo";
@@ -15,6 +16,10 @@ const TodoCollection = () => {
   const [loaded, setLoaded] = useState(false);
   const [limit, setLimit] = useState(10);
 
+  //Navigate
+  const navigate = useNavigate();
+
+  //Fetch todos
   const fetchTodos = async () => {
     setTodos([]);
 
@@ -48,6 +53,14 @@ const TodoCollection = () => {
     <div>
       {error.error ? <ErrorPanel message={error.message} /> : null}
       {!loaded ? <p className="pb-2 pt-2">Loading...</p> : null}
+      <div className="todo-collection-title-box">
+        <div className="todo-collection-title" onClick={() => navigate("/")}>
+          TODOs
+        </div>
+        <div className="create-todo-link" onClick={() => navigate("/create")}>
+          + new
+        </div>
+      </div>
       {!todos[0]
         ? null
         : todos.map((t, i) => {

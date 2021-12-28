@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
-import "./Todo.css";
 
 import BearerToken from "../../utils/BearerToken";
 import CheckStatus from "../../utils/CheckStatus";
 import ErrorPanel from "../ErrorPanel/ErrorPanel";
 import { useNavigate } from "react-router";
+
+import "./Todo.css";
 
 const Todo = ({ id, title, content, completed }) => {
   //State
