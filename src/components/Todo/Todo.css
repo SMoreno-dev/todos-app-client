@@ -1,0 +1,38 @@
+.todo-container {
+  margin: 2%;
+  background-color: rgb(41, 41, 41);
+  border-radius: 15px;
+  padding: 2%;
+}
+
+.todo-box {
+}
+
+.todo-title-and-id {
+  display: flex;
+  justify-content: flex-start;
+  color: rgb(95, 133, 182);
+}
+
+.todo-id {
+  color: rgb(185, 185, 185);
+  font-size: 1.5rem;
+  padding-right: 10px;
+}
+
+.todo-title {
+  text-decoration: none !important;
+  font-size: 1.5rem;
+  color: white;
+}
+
+.todo-actions {
+}
+
+.todo-content {
+  padding-left: 39px;
+}
+
+.todo-completed {
+  cursor: pointer;
+}
