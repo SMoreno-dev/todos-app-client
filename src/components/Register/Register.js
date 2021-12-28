@@ -55,12 +55,13 @@ const Register = () => {
           message: parsedResponse.message,
         });
       } else {
-        //TODO: Redirect to main component
-        console.log(parsedResponse);
+        localStorage.setItem("id", parsedResponse.body.id);
+        localStorage.setItem("token", parsedResponse.body.token);
+        navigate("/");
       }
     } catch (error) {
-      console.log("ERROR:", error);
-      throw new Error();
+      console.error("ERROR:", error);
+      setError({ error: true, message: "Something went wrong." });
     }
   };
 

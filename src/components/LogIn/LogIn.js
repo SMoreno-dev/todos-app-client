@@ -49,12 +49,13 @@ const LogIn = () => {
       if (response.status !== 200) {
         return setError({ error: true, message: parsedResponse.message });
       } else {
-        //TODO: Add token and redirect to main component
-        console.log(parsedResponse.body);
+        localStorage.setItem("id", parsedResponse.body.id);
+        localStorage.setItem("token", parsedResponse.body.token);
+        navigate("/");
       }
     } catch (error) {
+      return setError({ error: true, message: "Something went wrong" });
       console.log("ERROR:", error);
-      throw error;
     }
   };
 
