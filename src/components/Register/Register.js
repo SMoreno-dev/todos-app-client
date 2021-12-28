@@ -55,7 +55,7 @@ const Register = () => {
       if (checkedStatus.error === true) {
         return setError(checkedStatus);
       }
-      localStorage.setItem("id", parsedResponse.body.id);
+      localStorage.setItem("id", parsedResponse.body.user.id);
       localStorage.setItem("token", parsedResponse.body.token);
       return navigate("/");
     } catch (error) {

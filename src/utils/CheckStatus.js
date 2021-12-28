@@ -1,6 +1,8 @@
 const CheckStatus = (status, parsedResponse) => {
   switch (status) {
-    case 200 || 201:
+    case 200:
+      return { error: false };
+    case 201:
       return { error: false };
     case 401:
       return {
