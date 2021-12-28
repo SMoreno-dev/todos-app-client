@@ -1,70 +1,138 @@
-# Getting Started with Create React App
+# TODOs App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is the client-side/frontend repo. You can find the server-side/backend repo [here](https://github.com/SMoreno-dev/todos-app-server).
 
-## Available Scripts
+This project integrates a React frontend with a Node.js backend through a REST API with a PostgreSQL database.
 
-In the project directory, you can run:
+Features include:
 
-### `npm start`
+- Creation and authentication of users, necessary to gain access tokens.
+- Authorization of actions through json web tokens.
+- A feed that lists all TODO entries.
+- Creation and Deletion of TODOs
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Screenshots
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+|                                                   |                                                       |
+| :-----------------------------------------------: | :---------------------------------------------------: |
+| <img width="768" alt="Todo List" src="https://user-images.githubusercontent.com/67179213/147607842-4568aec1-b40d-49f5-af05-93054c2fd62a.png">Todo List | <img width="768" alt="Create Post" src="https://user-images.githubusercontent.com/67179213/147607856-3233beea-6a49-46bf-bc70-32bef19676ce.png">Create Post |
+|<img width="768" alt="Register" src="https://user-images.githubusercontent.com/67179213/147607880-2c893599-2067-4265-ad8a-37fd2e668c54.png">Register  |      <img width="768" alt="Log In" src="https://user-images.githubusercontent.com/67179213/147607898-a5e2a24b-903d-455f-901c-0682e86398fa.png">Log In      |
 
-### `npm test`
+## Dependencies
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Front End Dependencies
 
-### `npm run build`
+| Library Name       | Description                                      |
+| ------------------ | ------------------------------------------------ |
+| `react`            | Javascript library for creating user interfaces  |
+| `react-dom`        | React package for working with the DOM           |
+| `bootstrap`        | Open-source, front-end, responsive css framework |
+| `react-router`     | Declarative routing for React                    |
+| `react-router-dom` | DOM bindings for react-router                    |
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Back End Dependencies
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+| Library Name   | Description                                                             |
+| -------------- | ----------------------------------------------------------------------- |
+| `bcrypt`       | A library to help in hashing passwords                                  |
+| `express`      | Web framework for Node.js                                               |
+| `cors`         | Provides a Connect/Express middleware that can be used to enable CORS   |
+| `pg`           | Non-blocking PostgreSQL client for Node.js                              |
+| `pg-hstore`    | A module for serializing and deserializing JSON data into hstore format |
+| `cross-env`    | Run scripts that set and use environment variables across platforms     |
+| `dotenv`       | Loads environment variables from .env file                              |
+| `jsonwebtoken` | An implementation of JSON web tokens                                    |
+| `sequelize`    | Promise-based ORM tool for Node.js                                      |
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Backend Dev Dependencies
 
-### `npm run eject`
+| Library Name    | Description                                                       |
+| --------------- | ----------------------------------------------------------------- |
+| `chai`          | BDD/TDD assertion library for node.js and the browser             |
+| `chai-http`     | Provides an interface for live integration testing via superagent |
+| `mocha`         | JavaScript test framework for Node.js & The Browser               |
+| `nodemon`       | Simple monitor script for use during development of a node.js app |
+| `sequelize-cli` | A Command Line Interface (CLI) for Sequelize                      |
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## API Endpoints
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+| API             | VERB   | Parameters                          | Description          |
+| --------------- | ------ | ----------------------------------- | -------------------- |
+| /users/register | POST   | (email, password)                   | Register a new user  |
+| /users/login    | POST   | (email, password)                   | Log In               |
+| /todos          | GET    | none                                | List of all TODOs    |
+| /todos          | POST   | (title, content, userId, completed) | Creates a new TODO   |
+| /todos/:id      | PATCH  | (title, userId, content, completed) | Updates a TODO by id |
+| /todos/:id      | DELETE | none                                | Deletes a TODO by id |
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Guide
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Setting up the database
 
-## Learn More
+Install [postgresql](https://www.postgresql.org/) locally. Then use the following command to check if the `psql` shell is working:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```
+psql -U postgres
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+You won't need to create the database manually as long as you've got your environment variables set up properly.
 
-### Code Splitting
+### Setting up Node.js
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Start by cloning the server-side repo:
 
-### Analyzing the Bundle Size
+```
+git clone https://github.com/SMoreno-dev/todos-app-server
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Then install:
 
-### Making a Progressive Web App
+1. [node](https://nodejs.org/en/)
+2. [npm](https://www.npmjs.com/get-npm)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Next, `cd` to your project directory and run `npm install`
 
-### Advanced Configuration
+```
+cd directory/server-side-project
+npm install
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+You'll need to keep track of the environment variables. These are detailed in .env.example for your convenience.
 
-### Deployment
+```
+app.listen(PORT, HOST, () => {
+  console.log("Server running on port ", PORT);
+});
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+```
 
-### `npm run build` fails to minify
+Now you can simply run the server by using:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+| Script  | Description                                                         |
+| ------- | ------------------------------------------------------------------- |
+| `start` | Runs the app in production mode                                     |
+| `dev`   | Drops and creates a dev database, and runs the server using nodemon |
+| `test`  | Drops and creates a test database, and runs mocha tests             |
+
+You should be able to access the server on http://[host]:[port]/
+
+As for the client-side, you'll need to create a new directory, and clone the other repo:
+
+```
+git clone https://github.com/SMoreno-dev/todos-app-client
+```
+
+And again, `cd` to the project directory and run `npm install`:
+
+```
+cd directory/client-side-project
+npm install
+```
+
+Finally, you can run the react app with the following command:
+
+```
+npm start
+```
+
+By default, this should run the react app in http://localhost:3000/. Make sure it doesn't match your back-end port.
