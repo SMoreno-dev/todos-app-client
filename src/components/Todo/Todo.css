@@ -3,36 +3,68 @@
   background-color: rgb(41, 41, 41);
   border-radius: 15px;
   padding: 2%;
+  display: flex;
+  justify-content: space-between;
 }
 
-.todo-box {
+.todo-details {
+  margin: 0 5px 0 0;
+  width: 65vw;
 }
 
-.todo-title-and-id {
+.todo-id-and-title {
+  width: 100%;
   display: flex;
   justify-content: flex-start;
   color: rgb(95, 133, 182);
+  margin: 0 0 10px 0;
 }
 
 .todo-id {
   color: rgb(185, 185, 185);
-  font-size: 1.5rem;
+  font-size: 2rem;
   padding-right: 10px;
 }
 
 .todo-title {
   text-decoration: none !important;
-  font-size: 1.5rem;
+  font-size: 2rem;
   color: white;
 }
-
 .todo-actions {
-}
-
-.todo-content {
-  padding-left: 39px;
+  padding: 10px;
+  border-radius: 10px;
+  text-align: center;
+  align-content: center;
+  align-items: center;
+  display: block;
+  width: 20vw;
+  background-color: rgb(70, 69, 69);
 }
 
 .todo-completed {
   cursor: pointer;
+  font-size: 1.7rem;
+  color: green;
+}
+
+.todo-not-completed {
+  cursor: pointer;
+  font-size: 1.7rem;
+  color: red;
+}
+
+.todo-delete {
+  display: block;
+  cursor: pointer;
+  font-size: 1.7rem;
+  color: rgb(180, 180, 180);
+}
+
+.todo-content {
+  padding: 10px;
+  margin-left: 48px;
+  font-size: 1.3rem;
+  background-color: rgb(96, 99, 102);
+  border-radius: 10px;
 }
