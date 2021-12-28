@@ -4,7 +4,6 @@ import { useNavigate } from "react-router";
 import ErrorPanel from "../ErrorPanel/ErrorPanel";
 import Todo from "../Todo/Todo";
 
-import { Button } from "react-bootstrap";
 import "./TodoCollection.css";
 
 const TodoCollection = () => {
@@ -14,7 +13,6 @@ const TodoCollection = () => {
   //TODO collection state
   const [todos, setTodos] = useState([]);
   const [loaded, setLoaded] = useState(false);
-  const [limit, setLimit] = useState(10);
 
   //Navigate
   const navigate = useNavigate();
@@ -77,15 +75,6 @@ const TodoCollection = () => {
               />
             );
           })}
-
-      {todos.length < 10 ? null : (
-        <Button
-          className="todo-button mb-5"
-          onClick={() => setLimit(limit + 10)}
-        >
-          Load More
-        </Button>
-      )}
     </div>
   );
 };
