@@ -48,7 +48,7 @@ const TodoCollection = () => {
   };
 
   //useEffect
-  useEffect(() => fetchTodos(), [limit]);
+  useEffect(() => fetchTodos(), []);
 
   return (
     <div>

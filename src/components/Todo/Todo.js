@@ -120,7 +120,7 @@ const Todo = ({ id, title, content, completed }) => {
         <div className="todo-completed" onClick={() => completedHandler()}>
           <p className={isCompleted ? "todo-completed" : "todo-not-completed"}>
             {typeof isCompleted === undefined ? "Loading..." : null}
-            Status: {isCompleted ? "✔" : "✕"}
+            Completed: {isCompleted ? "✔" : "✕"}
           </p>
         </div>
         <div className="todo-delete" onClick={() => deleteHandler()}>
